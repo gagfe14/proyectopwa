@@ -82,7 +82,7 @@
       function calculaArea(){
         try {
           const r = radio.valueAsNumber;
-          valida(r == 0 || r < 0, "Valor del radio incorrecto.");
+          valida(r !== 0, "Valor del radio incorrecto.");
           const resultado = `El área  del círculo es `+ (r * r) * (3.1416);
           outResultado.value = resultado;
         } catch (e) {
