@@ -68,7 +68,42 @@
     <!-- Carga la configuración de tu proyecto en el servidor de Firebase. -->
     <script src="/__/firebase/init.js"></script>
   <body>
-    <h1>Ejemplo de una PWA</h1>
+    <form action=javascript:calculaArea();>
+      <header>
+        <h1>Calculadora del área del círculo</h1>
+        <button>
+          <span class="material-icons">
+            play_arrow
+          </span>
+        </button>
+      </header>
+      <p class="campo"><label>Por favor introduce el radio del circulo</label></p>
+      <p class="campo flotante">
+        <input id=radio type=number required>
+        <label for=radio>Radio</label>
+      </p>
+      <p class="campo flotamte"><output id=outResultado></output></p>
+    </form>
+    <script>
+      function calculaArea(){
+        try {
+          const r = radio.valueAsNumber;
+          valida(r !== 0, "Valor del radio incorrecto.");
+          const resultado = `El área  del círculo es `+ (r * r) * (3.1416);
+          outResultado.value = resultado;
+        } catch (e) {
+          console.log;
+          alert(e.message);
+        }
+        function valida(cond, mensaje) {
+          if (!cond) {
+            const resultado = "";
+            outResultado.value = resultado;
+          throw new Error(mensaje);
+          }
+        }
+      }
+    </script>
     <p>
       <output id="mensaje">
         <progress max="100">Cargando Firebase SDK&hellip;</progress>
