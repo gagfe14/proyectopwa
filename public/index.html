@@ -71,16 +71,10 @@
     <form action=javascript:calculaArea();>
       <header>
         <h1>Calculadora del área del círculo</h1>
-        <button>
-          <span class="material-icons">
-            play_arrow
-          </span>
-        </button>
       </header>
-      <p class="campo"><label>Por favor introduce el radio del circulo</label></p>
+      <p class="campo"><label>Introduzca el radio del control por favor</label></p>
       <p class="campo flotante">
         <input id=radio type=number required>
-        <label for=radio>Radio</label>
       </p>
       <p class="campo flotamte"><output id=outResultado></output></p>
     </form>
@@ -88,7 +82,7 @@
       function calculaArea(){
         try {
           const r = radio.valueAsNumber;
-          valida(r !== 0, "Valor del radio incorrecto.");
+          valida(r == 0 || r < 0, "Valor del radio incorrecto.");
           const resultado = `El área  del círculo es `+ (r * r) * (3.1416);
           outResultado.value = resultado;
         } catch (e) {
