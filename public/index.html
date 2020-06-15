@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
     <title>Ejemplo de una PWA</title>
     <script>
       /* invoca a registraServiceWorker instalar la aplicación en el caché del
@@ -68,12 +70,20 @@
     <!-- Carga la configuración de tu proyecto en el servidor de Firebase. -->
     <script src="/__/firebase/init.js"></script>
   <body>
-    <form action=javascript:calculaArea();>
-      <header>
+    <form action=javascript:calculaArea();> 
+      <header id="header">
         <h1>Calculadora del área del círculo</h1>
+        <button id="button">
+          <span class="material-icons" id="icon">
+            play_arrow
+          </span>
+        </button>
       </header>
-      <p class="campo"><label>Introduzca el radio del control por favor</label></p>
+      <section id="h1">
+      <p class="campo"><label id="h1">Introduzca el radio del circulo por favor</label></p>
+      <br>
       <p class="campo flotante">
+
         <input id=radio type=number required min="0">
       </p>
       <p class="campo flotamte"><output id=outResultado></output></p>
@@ -99,8 +109,11 @@
       }
     </script>
     <p>
-      <output id="mensaje">
-        <progress max="100">Cargando Firebase SDK&hellip;</progress>
+
+      <output id="mensaje" id="button">
+     
+
+        <progress max="100" id="barra">Cargando Firebase SDK&hellip;</progress>
       </output>
     </p>
     </h2><mi-footer></mi-footer>
@@ -109,7 +122,7 @@
         let app = firebase.app();
         let apis = ["auth", "firestore", "storage"]
           .filter(api => typeof app[api] === "function");
-        mensaje.value = `Firebase SDK cargó con: ${apis.join(', ')}`;
+        mensaje.value = ``;
       } catch (e) {
         muestraError(e);
       }
